@@ -4,12 +4,12 @@ html {
 
 }
 body {
-    heigt: 100%;
-    background-color: aquamarine;
+    height: 100%;
+    background-color: red;
 }
 p {
     font-size: 54px;
     text-align: center;
-    color: bisque;
+    color: #fff;
     font-family: Arial, sans-serif;
 }
