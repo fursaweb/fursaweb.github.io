@@ -3165,6 +3165,7 @@ html body .transition-off {
 body {
   font-size: 16px;
   min-height: 100vh;
+  line-height: 1.5;
 }
 a {
   color: #444;
@@ -3198,11 +3199,26 @@ p {
   border-bottom: 3px solid #ffc72c;
   padding: 150px 15px 0;
   box-sizing: border-box;
+  position: relative;
+}
+.banner-wrapper.content-banner {
+  background-image: url('../../dist/images/banner2.jpg');
+  height: 300px;
 }
 .slogan {
   font-size: 28px;
   font-weight: 700;
   padding-left: 50px;
+}
+.sidebar a {
+  padding: 10px;
+  display: block;
+  color: #00324b;
+  font-weight: bold;
+  border-bottom: 1px solid #ffc72c;
+}
+.content-wrapper {
+  padding: 0 10px;
 }
 header {
   padding: 15px 0;
@@ -3247,7 +3263,7 @@ footer a {
 }
 .banner-nav {
   position: absolute;
-  bottom: 3px;
+  bottom: 0;
   left: 0;
   right: 0;
   display: -webkit-flex;
