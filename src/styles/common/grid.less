@@ -1,0 +1,427 @@
+@amount: 12;
+
+.grid {
+	width: 100%;
+	box-sizing: border-box;
+	z-index: 1;
+
+	//стандартные стили блока sw c любым номером
+	> [class*='sw'] {
+		box-sizing: border-box;
+		position: relative;
+		float: left;
+		min-height: 1px;
+		&.fr {
+			float: right;
+		}
+		&.sw-12 {
+			float: none;
+			&.fr {
+				float: none;
+			}
+		}
+	}
+
+	// ширина блока sw. В итоге поучается класс .sw-1 и тд.
+	.loop(@amount, {
+		.sw-@{i} {
+			width: @i * @grid;
+		}
+	});
+
+
+	//стили для табличного вида
+	&.table {
+		display: table;
+		border-collapse: separate;
+		border-spacing: 0;
+
+		> [class*='sw'] {
+			display: table-cell;
+			vertical-align: top;
+			float: none;
+		}
+
+		&.h100p {
+			height: 100%;
+		}
+		&.collapse {
+			border-collapse: collapse;
+		}
+
+		&:after, &:before {
+			display: none;
+		}
+
+		&.fixed {
+			table-layout: fixed;
+		}
+
+		.vm {
+			vertical-align: middle;
+		}
+		.vt {
+			vertical-align: top;
+		}
+		.vb {
+			vertical-align: bottom;
+		}
+	}
+
+	//стили для блока,внутри которого илайновые блоки
+	&.inline-grid,
+	&.inline {
+		font-size: 0;
+
+		> [class*='sw'] {
+			.font-size(@f_normal);
+			display: inline-block;
+			vertical-align: top;
+			float: none;
+
+			&.vm {
+				vertical-align: middle;
+			}
+			&.vt {
+				vertical-align: top;
+			}
+			&.vb {
+				vertical-align: bottom;
+			}
+		}
+	}
+
+	&.static {
+		width: 100%;
+		max-width: 1000px;
+		padding: 0 10px;
+	}
+
+	&.max-shell {
+		max-width: 1600px;
+		margin-left: auto;
+		margin-right: auto;
+		padding-left: 1%;
+		padding-right: 1%;
+	}
+
+	&.w-auto {
+		width: auto;
+	}
+
+	&:after {
+		clear: both;
+	}
+
+	&:after, &:before {
+		display: table;
+		content: " ";
+		box-sizing: border-box;
+	}
+
+
+	//стили для margin-left. В итоге поучается класс .nsw-left-1 и тд.
+	.loop(@amount, {
+		.nsw-left-@{i} {
+			margin-left: @i * @grid;
+		}
+	});
+
+	//стили для margin-right. В итоге поучается класс .nsw-right-1 и тд.
+	.loop(@amount, {
+		.nsw-right-@{i} {
+			margin-right: @i * @grid;
+		}
+	});
+
+	//стили для добавления margin-right. В итоге поучается класс .sw-p-r1 и тд.
+	.loop(@amount/2, {
+		.sw-p-r@{i} {
+			margin-right: @i * @grid_p;
+		}
+	});
+
+	//стили для добавления padding-left. В итоге поучается класс .sw-p-l1 и тд.
+	.loop(@amount/2, {
+		.sw-p-l@{i} {
+			padding-left: @i * @grid_p;
+		}
+	});
+
+
+	//стили для добавления padding-left и padding-right. В итоге поучается класс .sw-p1 и тд.
+	.loop(@amount/2, {
+		.sw-p@{i} {
+			padding-left: @i * @grid_p;
+			padding-right: @i * @grid_p;
+			&:first-child {
+				padding-left: 0;
+			}
+			&:last-child {
+				padding-right: 0;
+			}
+		}
+	});
+
+	//стили для перестановки блоков влево. В итоге поучается класс .push-l-1 и тд.
+	.loop(@amount, {
+		.push-l-@{i} {
+			left: @i * @grid;
+			.mobile({ left: auto; right: auto; })
+		}
+	});
+
+	//стили для перестановки блоков вправо. В итоге поучается класс .push-r-1 и тд.
+	.loop(@amount, {
+		.push-r-@{i} {
+			right: @i * @grid;
+			.mobile({ left: auto; right: auto; })
+		}
+	});
+
+
+	//стили для адаптивной колоночной сетки
+	*[class*='justify'] {
+		> .sw {
+			display: inline-block;
+			float: none;
+		}
+	}
+	&.justify-6 {
+		.grid-justify-sw(9999px, 6);
+		.grid-justify-sw(1584px, 5);
+		.grid-justify-sw(1266px, 4);
+		.grid-justify-sw(950px, 3);
+		.grid-justify-sw(633px, 2);
+		.grid-justify-sw(@max-width-mobile, 1);
+	}
+	&.justify-5 {
+		.grid-justify-sw(9999px, 5);
+		.grid-justify-sw(1520px, 4);
+		.grid-justify-sw(1140px, 3);
+		.grid-justify-sw(760px, 2);
+		.grid-justify-sw(@max-width-mobile, 1);
+	}
+	&.justify-4 {
+		.grid-justify-sw(9999px, 4);
+		.grid-justify-sw(1425px, 3);
+		.grid-justify-sw(950px, 2);
+		.grid-justify-sw(@max-width-mobile, 1);
+	}
+	&.justify-3 {
+		.grid-justify-sw(9999px, 3);
+		.grid-justify-sw(1300px, 2);
+		.grid-justify-sw(@max-width-mobile, 1);
+	}
+	&.justify-2 {
+		.grid-justify-sw(9999px, 2);
+		.grid-justify-sw(950px, 1);
+	}
+
+	.sw_reset() {
+		float: none;
+		width: auto;
+		display: block;
+
+		&.sw-p-l1, &.sw-p-l2, &.sw-p-l3, &.sw-p-l4, &.sw-p-l5, &.sw-p-l6 {
+			padding-left: 0;
+			padding-top: 15px;
+		}
+
+		&.sw-p-r1, &.sw-p-r2, &.sw-p-r3, &.sw-p-r4, &.sw-p-r5, &.sw-p-r6 {
+			padding-right: 0;
+			padding-bottom: 15px;
+		}
+
+		&.sw-p1, &.sw-p2, &.sw-p3, &.sw-p4, &.sw-p5, &.sw-p6 {
+			padding: 15px 0;
+
+			&:first-child {
+				padding-top: 0;
+				padding-bottom: 0;
+			}
+			&:last-child {
+				padding-top: 0;
+				padding-bottom: 0;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: @max_width_tablet) {
+	.grid {
+		&.fluid {
+			&.table {
+				display: block
+			}
+
+			> [class*='sw'] {
+				.grid.sw_reset;
+			}
+		}
+
+		> .fluid {
+			.grid.sw_reset;
+		}
+	}
+
+	table.grid.fluid, table.fluid {
+		> tbody {
+			display: block;
+			> tr {
+				display: block;
+				> td {
+					display: block;
+					width: 100%;
+				}
+			}
+		}
+	}
+
+	body, .grid, .grid.table, .grid.fluid {
+		.hidden_mobile, .hidden-m {
+			display: none;
+		}
+	}
+}
+
+@media screen and (max-width: @max_width_middle_screen) {
+	.grid {
+		&.fluid-middle {
+			&.table {
+				display: block
+			}
+
+			> [class*='sw'] {
+				.grid.sw_reset;
+			}
+		}
+
+		> .fluid-middle {
+			.grid.sw_reset;
+		}
+	}
+
+	table.grid.fluid-middle, table.fluid-middle {
+		> tbody {
+			display: block;
+			> tr {
+				display: block;
+				> td {
+					display: block;
+					width: 100%;
+				}
+			}
+		}
+	}
+
+	body, .grid, .grid.table, .grid.fluid-middle {
+
+		.hidden_mobile, .hidden-m {
+			display: none;
+		}
+	}
+}
+
+@media screen and (max-width: @max_width_mobile) {
+	.grid {
+		&.fluid-p {
+			&.table {
+				display: block
+			}
+
+			> [class*='sw'] {
+				.grid.sw_reset;
+			}
+		}
+
+		> .fluid-p {
+			.grid.sw_reset;
+		}
+	}
+
+	table.grid.fluid-p, table.fluid-p {
+		> tbody {
+			display: block;
+			> tr {
+				display: block;
+				> td {
+					display: block;
+					width: 100%;
+				}
+			}
+		}
+	}
+
+	.grid.fluid-p {
+		.hidden_mobile, .hidden-m {
+			display: none;
+		}
+
+		.hidden_phone, .hidden-p {
+			display: none;
+		}
+	}
+
+	body, .grid, .grid.table, .grid.fluid {
+
+		.hidden_phone, .hidden-p {
+			display: none;
+		}
+	}
+}
+
+@media screen and (min-width: @min_width_tablet) and (max-width: @max_width_tablet) {
+	.grid {
+		&.fluid-t {
+			&.table {
+				display: block
+			}
+
+			> [class*='sw'] {
+				.grid.sw_reset;
+			}
+		}
+
+		> .fluid-t {
+			.grid.sw_reset;
+		}
+	}
+
+	table.grid.fluid-t, table.fluid-t {
+		> tbody {
+			display: block;
+			> tr {
+				display: block;
+				> td {
+					display: block;
+					width: 100%;
+				}
+			}
+		}
+	}
+
+	.grid.fluid-t {
+		.hidden-t {
+			display: none;
+		}
+	}
+
+	body, .grid, .grid.table, .grid.fluid {
+
+		.hidden-t {
+			display: none;
+		}
+	}
+}
+
+.mobile({
+	.grid {
+		// ширина блока sw в режиме планшета. В итоге поучается класс .sw-t-1 и тд.
+		.loop(@amount, {
+			.sw-t-@{i} {
+				width: @i * @grid;
+			}
+		});
+	}
+});
