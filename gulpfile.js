@@ -135,7 +135,7 @@ gulp.task('compress-js', function (cb) {
 gulp.task('browser-sync', ['default'], function() {
     browserSync.init({
         server: {
-            baseDir: '.'
+            baseDir: 'dist'
         }
     });
 
