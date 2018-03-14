@@ -29,6 +29,7 @@
   "description": "",
   "repository": {},
   "dependencies": {
+    "gulp": "^3.9.1",
     "nunjucks": "^3.0.1"
   }
 }
