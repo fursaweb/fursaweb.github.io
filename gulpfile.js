@@ -58,7 +58,7 @@ gulp.task('nunjucks-render', function () {
 		.pipe(nunjucksRender({
 			path: ['src/templates/'] // String or Array
 		}))
-		.pipe(gulp.dest(''));
+		.pipe(gulp.dest('dist'));
 });
 
 gulp.task('less', ['vendor-css'], function (cb) {
