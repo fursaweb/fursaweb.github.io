@@ -142,7 +142,7 @@ gulp.task('browser-sync', ['default'], function() {
     gulp.watch([dirCss_src + '/**/*.less'], ['less']).on('change', reload);
     gulp.watch([dirJs_src + '/*.js'], ['compress-js']).on('change', reload);
     gulp.watch([dirImages_src + '/**/*'], ['image-min']).on('change', reload);
-    gulp.watch(['src/templates/*.html']).on('change', reload);
+    gulp.watch(['src/templates/*.html'], ['nunjucks-render']).on('change', reload);
 });
 
 /**
