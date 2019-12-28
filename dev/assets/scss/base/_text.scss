@@ -1,0 +1,43 @@
+.dote-list {
+  color: #000;
+
+  li {
+    padding-left: 30px;
+    position: relative;
+    margin-bottom: 20px;
+
+    &::before {
+      content: "";
+      background-image: url("/assets/images/icon-req/check.svg");
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: 100%;
+      position: absolute;
+      top: 1px;
+      left: 0;
+      width: 17px;
+      height: 17px;
+    }
+  }
+}
+
+.dropdown {
+  &__body {
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    pointer-events: none;
+    transform: translate(0, 3%);
+    height: 0;
+    overflow: hidden;
+
+    &.active {
+      position: relative;
+      opacity: 1;
+      height: auto;
+      pointer-events: all;
+      transition: $time;
+      transform: translate(0, 0);
+    }
+  }
+}

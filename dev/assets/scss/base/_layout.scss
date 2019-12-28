@@ -1,0 +1,51 @@
+html {
+  font-size: 1.110100vw;
+  //font-size: 16px;
+}
+
+
+body {
+  font: 400 18px/1.5 $fontGothamPro;
+  color: #fff;
+  background-color: $colorBlue;
+  height: 1200vh;
+
+  &.main-page {
+    padding-top: 0;
+  }
+}
+
+.circle-white {
+  position: fixed;
+  width: 0;
+  height: 0;
+  // opacity: 0;
+  background-color: #fff;
+  border-radius: 50%;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  fill: #fff;
+  display: block;
+}
+
+.container {
+  width: 100%;
+  max-width: 1240px;
+  padding: 0 20px;
+  margin: auto;
+}
+
+.transition-fade {
+  transition: 0.4s;
+  opacity: 1;
+}
+
+html.is-animating .transition-fade {
+  opacity: 0;
+}

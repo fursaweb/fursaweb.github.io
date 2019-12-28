@@ -1,0 +1,47 @@
+/*Gotham Pro*/
+@font-face {
+  font-family: 'Gotham Pro';
+  src: url('/fonts/GothamProRegular/GothamPro-Regular.eot');
+  src: local('Proxima Nova'), local('ProximaNova'),
+  url('/fonts/GothamProRegular/GothamPro-Regular.eot?#iefix') format('embedded-opentype'),
+  url('/fonts/GothamProRegular/GothamPro-Regular.woff2') format('woff2'),
+  url('/fonts/GothamProRegular/GothamPro-Regular.woff') format('woff'),
+  url('/fonts/GothamProRegular/GothamPro-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham Pro';
+  src: url('/fonts/GothamProMedium/GothamPro-Medium.eot');
+  src: local('Proxima Nova'), local('ProximaNova'),
+  url('/fonts/GothamProMedium/GothamPro-Medium.eot?#iefix') format('embedded-opentype'),
+  url('/fonts/GothamProMedium/GothamPro-Medium.woff2') format('woff2'),
+  url('/fonts/GothamProMedium/GothamPro-Medium.woff') format('woff'),
+  url('/fonts/GothamProMedium/GothamPro-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham Pro';
+  src: url('/fonts/GothamProBold/GothamPro-Bold.eot');
+  src: local('Proxima Nova'), local('ProximaNova'),
+  url('/fonts/GothamProBold/GothamPro-Bold.eot?#iefix') format('embedded-opentype'),
+  url('/fonts/GothamProBold/GothamPro-Bold.woff2') format('woff2'),
+  url('/fonts/GothamProBold/GothamPro-Bold.woff') format('woff'),
+  url('/fonts/GothamProBold/GothamPro-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Gotham Pro';
+  src: url('/fonts/GothamProLight/GothamPro-Light.eot');
+  src: local('Proxima Nova'), local('ProximaNova'),
+  url('/fonts/GothamProLight/GothamPro-Light.eot?#iefix') format('embedded-opentype'),
+  url('/fonts/GothamProLight/GothamPro-Light.woff2') format('woff2'),
+  url('/fonts/GothamProLight/GothamPro-Light.woff') format('woff'),
+  url('/fonts/GothamProLight/GothamPro-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
